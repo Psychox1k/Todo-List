@@ -32,13 +32,13 @@
               {{ tag.name }}
           </td>
           <td>
-              <a href="#">
+              <a href="{% url 'todo:tag-update' pk=tag.id %}">
                 Update
               </a>
             </td>
             <td>
               <a style="color: red"
-                href="#">
+                href="{% url 'todo:tag-delete' pk=tag.id %}">
                 Delete
               </a>
             </td>

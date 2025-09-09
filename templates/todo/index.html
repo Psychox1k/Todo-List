@@ -28,7 +28,7 @@
     <p>Tags: {% for tag in tags %}
       {% empty %}
       There is no tags
-      {% endfor %} <a href="#"> Update</a> <a href="#">Delete</a>
+      {% endfor %} <a href="{% url 'todo:task-update' pk=task.id %}"> Update</a> <a href="{% url 'todo:task-delete' pk=task.id %}">Delete</a>
       </p>
 <hr>
   {% empty %}
