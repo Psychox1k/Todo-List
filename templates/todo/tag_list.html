@@ -1,13 +1,22 @@
 {% extends "base.html" %}
  {% load crispy_forms_tags %}
-{% block content %}
-  <h1>
+{% block content%}
+  <div class="row">
+  <div class="col-10">
+    <h1>
     Tags
-    <a href="#" class="btn btn-primary link-to-page">
+
+  </h1>
+  </div>
+  <div class="col-2">
+     <a href="{% url 'todo:tag-create' %}" class="btn btn-primary link-to-page">
       Add
     </a>
-  </h1>
-  
+  </div>
+  </div>
+
+
+
 
   {% if tag_list %}
     <table class="table">
