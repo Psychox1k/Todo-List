@@ -1,7 +1,7 @@
 from django.urls import path
 
 from todo.views import TaskListView, TagListView, TaskCreateView, TagCreateView, TagDeleteView, TaskDeleteView, \
-    TaskUpdateView, TagUpdateView, complete_or_undo
+    TaskUpdateView, TagUpdateView, CompleteOrUndoView
 
 urlpatterns = [
     path("", TaskListView.as_view(), name="task-list"),
@@ -13,7 +13,7 @@ urlpatterns = [
     path("tasks/<int:pk>/update/", TaskUpdateView.as_view(), name="task-update"),
     path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
 
-    path("tasks/<int:pk>/complete_or_undo/", complete_or_undo, name="task-completion"),
+    path("tasks/<int:pk>/complete_or_undo/", CompleteOrUndoView.as_view(), name="task-completion"),
 ]
 
 app_name = "todo"

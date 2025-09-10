@@ -51,8 +51,11 @@ class TagDeleteView(generic.DeleteView):
     success_url = reverse_lazy("todo:tag-list")
 
 
-def complete_or_undo(request, pk):
-    task = Task.objects.get(pk=pk)
-    task.is_completed = not task.is_completed
-    task.save()
-    return redirect("todo:task-list")
+class CompleteOrUndoView(generic.RedirectView):
+    pattern_name = "todo:task-list"
+
+    def get_redirect_url(self, *args, **kwargs):
+        task = Task.objects.get(pk=kwargs['pk'])
+        task.is_completed = not task.is_completed
+        task.save()
+        return super().get_redirect_url()
